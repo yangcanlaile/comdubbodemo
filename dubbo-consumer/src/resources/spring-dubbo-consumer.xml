@@ -6,9 +6,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <dubbo:application name="dubbo-provider"/>
+   
+    <dubbo:application name="simple-app"/>
     <dubbo:registry address="zookeeper://192.168.4.5:2181"/>
-    <dubbo:provider cluster="failfast"/>
-    <bean id="userService" class="com.dubbo.api.UserServiceImpl"/>
-    <dubbo:service interface="com.dubbo.api.UserService" ref="userService"/>
+    <dubbo:reference id="userService" interface="com.dubbo.api.UserService"/>
 </beans>

@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    @Autowired
-    private UserService userService;
-
-    @RequestMapping("/hello.html")
-    @ResponseBody
-    public String sayHello(String name) {
-        String welcome = userService.sayHi(name);
-        return welcome;
-    }
+//    @Autowired
+//    private UserService userService;
+//
+//    @RequestMapping("/hello.html")
+//    @ResponseBody
+//    public String sayHello(String name) {
+//        String welcome = userService.sayHi(name);
+//        return welcome;
+//    }
 }
