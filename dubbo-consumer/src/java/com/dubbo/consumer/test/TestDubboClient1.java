@@ -14,11 +14,18 @@ public class TestDubboClient1 {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-dubbo-consumer.xml");
         ((ClassPathXmlApplicationContext) context).start();
         UserService userService = context.getBean(UserService.class);
-
-        System.out.println(userService.sayHi());
-
-
-
+        String str;
+        while(!(str = read()).equals("quit")) {
+            str = str.substring(0, str.length()-1);
+            System.out.println(userService.getUser(str));
+        }
         System.in.read();
+    }
+
+    public static String read() throws IOException {
+
+        byte[] bytes = new byte[1024];
+        int size = System.in.read(bytes);
+        return new String(bytes, 0, size);
     }
 }
